@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-arabic: "Amiri", "Traditional Arabic", "Scheherazade New", serif;
+
+  /* VIBRANT SACRED THEME */
+  --color-mint-bg: #85BDB3;         /* Outer frame / accent mint teal */
+  --color-mint-light: #EBF5F2;      /* Very soft mint tinted surface */
+  --color-mint-soft: #DCF0EC;       /* Soft mint card background */
+  --color-mint-border: #C8E5DF;     /* Subtle mint border */
+  --color-emerald-deep: #008767;    /* Deep vibrant emerald for active pills & primary CTA */
+  --color-emerald-vibrant: #00A878; /* Radiant luminous emerald */
+  --color-emerald-hover: #007256;   /* Hover state for emerald CTA */
+  --color-gold-warm: #F59E0B;       /* Warm glowing gold accent */
+  --color-amber-vivid: #D97706;     /* Vivid amber for badges & highlights */
+  --color-slate-dark: #111827;      /* Primary display heading text */
+  --color-slate-body: #374151;      /* Crisp readable body text */
+  --color-slate-muted: #6B7280;     /* Muted metadata and icons */
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: #111827;
+    background-color: #85BDB3;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #85BDB3;
+    color: #111827;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #111827;
+  }
+
+  p {
+    line-height: 1.65;
+    color: #374151;
+  }
+}
+
+/* CUSTOM FLOATING & VIBRANT MOTION ANIMATIONS */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(14px) rotate(-3deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 8.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotateSlow 28s linear infinite;
+}
+
+/* PICTURE HOVER SHIMMER EFFECT */
+.picture-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.picture-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
+  transition: none;
+}
+
+.picture-card:hover::after {
+  animation: shimmerSweep 1s ease-in-out;
+}
+
+

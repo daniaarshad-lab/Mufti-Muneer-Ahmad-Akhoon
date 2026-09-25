@@ -1,0 +1,7 @@
+{
+  "name": "Mufti Muneer Ahmad Akhoon",
+  "description": "Official portal for Mufti Muneer Ahmad Akhoon - Islamic scholar, educator, founder of Jamia Zakariyya, and spiritual mentor based in New York.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
